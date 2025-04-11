@@ -1,0 +1,29 @@
+{
+  "name": "ai-assistant",
+  "version": "0.1.0",
+  "description": "Multi-tenant AI Assistant with local LLM integration",
+  "private": true,
+  "workspaces": [
+    "client",
+    "admin-portal"
+  ],
+  "scripts": {
+    "dev:client": "cd client && npm run dev",
+    "dev:admin": "cd admin-portal && npm run dev",
+    "dev:api": "cd api && python -m uvicorn main:app --reload",
+    "build:client": "cd client && npm run build",
+    "build:admin": "cd admin-portal && npm run build",
+    "test:client": "cd client && npm test",
+    "test:admin": "cd admin-portal && npm test",
+    "test:api": "cd api && pytest",
+    "lint": "npm run lint:client && npm run lint:admin",
+    "lint:client": "cd client && npm run lint",
+    "lint:admin": "cd admin-portal && npm run lint"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "author": "",
+  "license": "MIT"
+}
