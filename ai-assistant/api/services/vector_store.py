@@ -254,7 +254,7 @@ class VectorStore:
         norm = sum(x**2 for x in embedding) ** 0.5
         embedding = [x / norm for x in embedding]
         
-        return embedding
+        return embedding # Directly return embedding
     
     def _store_chunk(self, 
                      chunk_id: str, 

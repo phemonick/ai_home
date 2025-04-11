@@ -1,0 +1,33 @@
+# Byte-compiled / optimized /
+ DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+.DS_Store
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# PyInstaller
+#  Usually these files are written to the dist folder from which PyInstaller
+#  builds the application.
+#  See https://docs.pyinstaller.com/stable/usage.html
+build
+dist
+.pytest_cache/
+.env

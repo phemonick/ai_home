@@ -6,10 +6,17 @@ python-dotenv>=1.0.0
 pytest>=7.3.1
 httpx>=0.24.1
 
+# Document Processing
+PyPDF2>=3.0.1
+markdown>=3.4.4
+beautifulsoup4>=4.12.3
+
 # Vector Store
 faiss-cpu>=1.7.4
 langchain>=0.0.267
 
 # LLM Integration
-openai>=0.27.8
-llama-cpp-python>=0.1.77
+openai>=0.28.1
+llama-cpp-python>=0.2.18
+tenacity>=8.2.3
+numpy>=1.26.4
