@@ -1,6 +1,5 @@
 import React, { ReactNode, useState } from 'react';
-import Head from 'next/head';
-import { useRouter } from 'next/router';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   AppBar,
   Box,
@@ -41,7 +40,8 @@ interface LayoutProps {
 const drawerWidth = 240;
 
 const Layout = ({ children, title = 'AI Assistant Admin' }: LayoutProps) => {
-  const router = useRouter();
+  const navigate = useNavigate();
+  const location = useLocation();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
@@ -86,9 +86,9 @@ const Layout = ({ children, title = 'AI Assistant Admin' }: LayoutProps) => {
         {menuItems.map((item) => (
           <ListItem key={item.text} disablePadding>
             <ListItemButton 
-              selected={router.pathname === item.path}
+              selected={location.pathname === item.path}
               onClick={() => {
-                router.push(item.path);
+                navigate(item.path);
                 if (mobileOpen) handleDrawerToggle();
               }}
             >
@@ -106,11 +106,10 @@ const Layout = ({ children, title = 'AI Assistant Admin' }: LayoutProps) => {
   return (
     <Box sx={{ display: 'flex' }}>
       <CssBaseline />
-      <Head>
-        <title>{title}</title>
-        <meta name="description" content="AI Assistant Admin Portal" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+      {/* Set document title */}
+      <div style={{ display: 'none' }}>
+        {document.title = title}
+      </div>
       
       <AppBar
         position="fixed"
@@ -162,7 +161,7 @@ const Layout = ({ children, title = 'AI Assistant Admin' }: LayoutProps) => {
           >
             <MenuItem onClick={() => {
               handleProfileMenuClose();
-              router.push('/profile');
+              navigate('/profile');
             }}>
               <Avatar /> Profile
             </MenuItem>
