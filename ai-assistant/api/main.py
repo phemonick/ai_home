@@ -16,7 +16,6 @@ import uuid
 import logging
 
 # Import services
-from services.llm_client import LLMClient
 from services.vector_store import VectorStore
 from services.guided_task_engine import GuidedTaskEngine
 from services.escalation import create_ticket, notify_support
@@ -85,7 +84,6 @@ class IngestResponse(BaseModel):
     errors: Optional[List[str]] = None
 
 # Services
-llm_client = LLMClient()
 vector_store = VectorStore()
 guided_task_engine = GuidedTaskEngine()
 
@@ -121,6 +119,8 @@ async def chat(
     # Enrich context with vector search results
     enriched_context = await enrich_context(request.context, request.message, tenant_id)
     
+    from services.llm_client import LLMClient
+    llm_client = LLMClient()
     # Generate LLM response
     llm_response = await llm_client.generate_response(
         message=request.message,
